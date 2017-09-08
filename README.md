@@ -1,2 +1,2 @@
 # SkinDesigner
-SkinDesigner facade panelization tool for Grasshopper
+SkinDesigner is a facade panelization tool for Grasshopper
