@@ -27,7 +27,7 @@ Refer to Panel API for panel object functions
 
 ghenv.Component.Name = "SkinDesigner_Panel"
 ghenv.Component.NickName = 'Panel'
-ghenv.Component.Message = 'VER 0.0.63\nSep_03_2017'
+ghenv.Component.Message = 'VER 0.0.64\nSep_11_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "01 | Construction"
 
@@ -70,8 +70,9 @@ import Rhino
 import scriptcontext as sc
 import copy
 from types import *
-SGLibPanel = sc.sticky["SGLib_Panel"]
 
+
+    
 #init set up global variables
 
 sc.doc = Rhino.RhinoDoc.ActiveDoc
