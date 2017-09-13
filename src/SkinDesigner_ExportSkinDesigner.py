@@ -16,9 +16,8 @@ Provided by Ladybug 0.0.61
 
 ghenv.Component.Name = "SkinDesigner_ExportSkinDesigner"
 ghenv.Component.NickName = 'ExportSkinDesigner'
-ghenv.Component.Message = 'VER 0.0.50\nApr_07_2016'
+ghenv.Component.Message = 'VER 0.0.50\nSEP_13_2017'
 ghenv.Component.Category = "SkinDesigner"
-ghenv.Component.SubCategory = "10 | Developers"
 
 
 try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
