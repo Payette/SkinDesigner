@@ -87,6 +87,11 @@ panelDefinition = ""
 warningData = []
 panelWarningData = []
 
+try:
+    SGLibPanel = sc.sticky["SGLib_Panel"]
+except:
+    warningData.append("I need SkinDesigner_SkinDesigner component")
+    
 #SKIN GRID GENERATION BASED ON PANEL SIZE
 #------------------------------------------------------------------------------
 def PanelCreate():
