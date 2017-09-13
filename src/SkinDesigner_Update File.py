@@ -41,6 +41,7 @@ ghenv.Component.NickName = 'updateGHFile'
 ghenv.Component.Message = 'VER 0.0.65\nSEP_13_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "SkinDesigner"
+ghenv.Component.SubCategory = "05 | Update"
 #compatibleLBVersion = VER 0.0.59\nFEB_01_2015
 try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
 except: pass
