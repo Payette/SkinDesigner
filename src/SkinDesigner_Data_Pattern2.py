@@ -18,10 +18,10 @@ DattaPattern2 places each pattern on different rows: pattern_1 will be used on t
 
 ghenv.Component.Name = "SkinDesigner_Data_Pattern2"
 ghenv.Component.NickName = 'Data_Pattern2'
-ghenv.Component.Message = 'VER 0.0.60\nJul_13_2017'
+ghenv.Component.Message = 'VER 0.0.61\nSep_21_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "03 | Functions"
-try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
+try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
 except: pass
 
 # automnatically set the right input names and types (when using + icon) 
@@ -125,6 +125,6 @@ class LayoutDataFunction:
 
 dataFunctionL = LayoutDataFunction()
 if dataFunctionL.warningData <> []: 
-    for warning in dataFunction.warningData: ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, str(warning))
+    for warning in dataFunctionL.warningData: ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning, str(warning))
 
 print "Done"

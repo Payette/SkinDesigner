@@ -17,10 +17,10 @@ Use this component to apply a random panel layout algorithm to a Design Function
 
 ghenv.Component.Name = "SkinDesigner_Data_Random"
 ghenv.Component.NickName = 'Data_Random'
-ghenv.Component.Message = 'VER 0.0.60\nJul_13_2017'
+ghenv.Component.Message = 'VER 0.0.60\nSep_21_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "03 | Functions"
-try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
+try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
 except: pass
 
 #import rhinoscriptsyntax as rs

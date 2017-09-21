@@ -18,9 +18,9 @@ Use this component to modify the data list generated in the Panel Functions with
 
 """
 
-ghenv.Component.Name = "SkinDesigner_Data_Proximity"
-ghenv.Component.NickName = 'Data_Proximity'
-ghenv.Component.Message = 'VER 0.0.15\nJul_13_2017'
+ghenv.Component.Name = "SkinDesigner_PanelData_Proximity"
+ghenv.Component.NickName = 'PanelData_Proximity'
+ghenv.Component.Message = 'VER 0.0.15\nSep_21_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "03 | Functions"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"

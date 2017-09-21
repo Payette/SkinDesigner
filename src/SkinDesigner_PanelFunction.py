@@ -20,10 +20,10 @@ Use this component to apply a panel algorithms to a SkinGenerator component.
 
 ghenv.Component.Name = "SkinDesigner_PanelFunction"
 ghenv.Component.NickName = 'PanelFunction'
-ghenv.Component.Message = 'VER 0.0.75\nJul_13_2017'
+ghenv.Component.Message = 'VER 0.0.75\nSep_21_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "03 | Functions"
-try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
+try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
 except: pass
 
 import Grasshopper.Kernel as gh

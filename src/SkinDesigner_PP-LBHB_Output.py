@@ -15,7 +15,7 @@ Use this component to apply a post-processing function(representation properties
 
 ghenv.Component.Name = "SkinDesigner_PP-LBHB_Output"
 ghenv.Component.NickName = 'PP-LBHB_Output'
-ghenv.Component.Message = 'VER 0.0.50\nSep_03_2017'
+ghenv.Component.Message = 'VER 0.0.50\nSep_21_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "03 | Functions"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "3"
