@@ -1,7 +1,22 @@
+# SkinDesigner: A Plugin for Building Skin Design (GPL) started by Santiago Garay
 
-# By Santiago Garay
-# LBHB_PanelGeometry
-
+# This file is part of SkinDesigner.
+# 
+# Copyright (c) 2017, Santiago Garay <sgaray1970@gmail.com> 
+# SkinDesigner is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# SkinDesigner is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with SkinDesigner; If not, see <http://www.gnu.org/licenses/>.
+# 
+# @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
 """
 Use this component to display all panel types used to generate the skin. Also a count of each panelis provided
 On bold are dicplayed the panels defined as Panel objects. The additional panels created by Skin_Automata
@@ -18,7 +33,7 @@ On bold are dicplayed the panels defined as Panel objects. The additional panels
 
 ghenv.Component.Name = "SkinDesigner_SkinPanelIndexViewer"
 ghenv.Component.NickName = 'SkinPanelIndexBrepViewer'
-ghenv.Component.Message = 'VER 0.0.15\nJul_13_2017'
+ghenv.Component.Message = 'VER 0.1.16\nSep_22_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "04 | Display"
 

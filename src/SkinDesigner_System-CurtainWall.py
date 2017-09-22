@@ -1,6 +1,23 @@
-# By Santiago Garay
-# Skin Generator
+# SkinDesigner: A Plugin for Building Skin Design (GPL) started by Santiago Garay
 
+# This file is part of SkinDesigner.
+# 
+# Copyright (c) 2017, Santiago Garay <sgaray1970@gmail.com> 
+# SkinDesigner is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# SkinDesigner is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with SkinDesigner; If not, see <http://www.gnu.org/licenses/>.
+# 
+# @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
+# SkinDesigner_System-CurtainWall
 """
 Use this component to generate a curtain-wall system to be added to a Panel component.
 Note mullion thickness inputs accept floating point values or lists of three values to specify each mullion segment independently(left or below window, at window, above or right of window).
@@ -40,7 +57,7 @@ Note mullion thickness inputs accept floating point values or lists of three val
 
 ghenv.Component.Name = "SkinDesigner_System-CurtainWall"
 ghenv.Component.NickName = 'System-CurtainWall'
-ghenv.Component.Message = 'VER 0.0.46\nJul_13_2017'
+ghenv.Component.Message = 'VER 0.1.16\nSep_22_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "02 | Parameters"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
@@ -54,8 +71,8 @@ accessList = ghenv.Component.Params.Input[0].Access.list
 accessItem = ghenv.Component.Params.Input[0].Access.item
 typeFloat = GhPython.Component.NewFloatHint()
 
-inputNames = ['width','thickness','capThickness','windowThickness','windowCapThickness', '---------------------------', 'panelThickness_H','panelCapThickness_H',\
-    'panelThickness_V', 'panelCapThickness_V', '---------------------------', 'windowThickness_H', 'windowCapThickness_H','windowThickness_V','windowCapThickness_V']
+inputNames = ['-----global mullion data---','width','thickness','capThickness','windowThickness','windowCapThickness', '-----panel mllion data-----', 'panelThickness_H','panelCapThickness_H',\
+    'panelThickness_V', 'panelCapThickness_V', '-----window mullion data---', 'windowThickness_H', 'windowCapThickness_H','windowThickness_V','windowCapThickness_V']
     
 for input in range(numInputs):
     if input >= len(inputNames): continue
@@ -78,8 +95,8 @@ for num in range(numInputs) :
         except: warningData.append("Invalid input "+ inputString)
 
 # reset deleted inputs. They keep last data otherwise.
-for num in range(15-numInputs) :
-    inputString = inputNames[14-num]
+for num in range(16-numInputs) :
+    inputString = inputNames[15-num]
     if '-----' in inputString: continue
     inputString += '=[]'
     codeObj= compile(inputString,'<string>','single')
@@ -160,10 +177,11 @@ if warningData <> []:
 else:
     panelSystem = ["CurtainWall" , PanelActions , MullionActions, WindowMullionActions]
 
-print panelSystem
+#print panelSystem
  
 #thickness= thicknessA = thicknessC="max(thickness, wd[4]*-1)" # use wall thickness or glass recess on punched window
 #MullionData = "AddWindowMullions(width="+ str(width)+", thickness=[" + str(thicknessA)+","+ str(thickness)+","+ str(thicknessC)+\
 #    "], capThickness=[0,0.05,0])\r\n"
 
 
+print "Done"

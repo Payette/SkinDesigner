@@ -1,8 +1,25 @@
-# By Santiago Garay
-# Skin Generator
+# SkinDesigner: A Plugin for Building Skin Design (GPL) started by Santiago Garay
 
+# This file is part of SkinDesigner.
+# 
+# Copyright (c) 2017, Santiago Garay <sgaray1970@gmail.com> 
+# SkinDesigner is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# SkinDesigner is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with SkinDesigner; If not, see <http://www.gnu.org/licenses/>.
+# 
+# @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
+# Window
 """
-Use this component to generate a window to be added to a Panel component.
+Use this component to generate a window to be input to a Panel component.
 -
 Refer to PanelLib API for Definition input functions
     Args:
@@ -20,7 +37,7 @@ Refer to PanelLib API for Definition input functions
 
 ghenv.Component.Name = "SkinDesigner_Window"
 ghenv.Component.NickName = 'Window'
-ghenv.Component.Message = 'VER 0.0.49\nJul_13_2017'
+ghenv.Component.Message = 'VER 0.1.16\nSep_22_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "02 | Parameters"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
@@ -46,4 +63,3 @@ if fromBottom <> None : wFromBottom = fromBottom
 if recess <> None : wRecess = -recess
 
 windowSystem = [wWidth,wHeight, wFromLeft, wFromBottom, wRecess]
-print windowSystem

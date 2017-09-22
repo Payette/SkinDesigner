@@ -1,9 +1,9 @@
 #
 # SkinDesigner: A Plugin for Building Skin Design (GPL) started by Santiago Garay
-
+# This component was written thanks to Mostapha Sadeghipour Roudsari creator of the Ladybug component.
 # This file is part of SkinDesigner.
 # 
-# Copyright (c) 2017, Santiago Garay <sgaray1970@gmail.com> 
+# Copyright (c) 2017, Santiago Garay <sgaray1970@gmail.com> and Chris Mackey <Chris@MackeyArchitecture.com>
 # SkinDesigner is free software; you can redistribute it and/or modify 
 # it under the terms of the GNU General Public License as published 
 # by the Free Software Foundation; either version 3 of the License, 
@@ -38,7 +38,7 @@ Provided by SkinDesigner 0.0.65
 
 ghenv.Component.Name = "SkinDesigner_Update File"
 ghenv.Component.NickName = 'updateGHFile'
-ghenv.Component.Message = 'VER 0.0.65\nSEP_13_2017'
+ghenv.Component.Message = 'VER 0.1.16\nSep_22_2017'
 ghenv.Component.IconDisplayMode = ghenv.Component.IconDisplayMode.application
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "05 | Update"

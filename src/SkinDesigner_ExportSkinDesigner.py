@@ -1,12 +1,27 @@
-# By Chris Mackey
-# Skin Generator
+# SkinDesigner: A Plugin for Building Skin Design (GPL) started by Santiago Garay
+# This component was written thanks to Giulio Piacentino a really helpful example.
+# This file is part of SkinDesigner.
+# 
+# Copyright (c) 2017, Santiago Garay <sgaray1970@gmail.com> and Chris Mackey <Chris@MackeyArchitecture.com>
+# SkinDesigner is free software; you can redistribute it and/or modify 
+# it under the terms of the GNU General Public License as published 
+# by the Free Software Foundation; either version 3 of the License, 
+# or (at your option) any later version. 
+# 
+# SkinDesigner is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the 
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with SkinDesigner; If not, see <http://www.gnu.org/licenses/>.
+# 
+# @license GPL-3.0+ <http://spdx.org/licenses/GPL-3.0+>
 
 """
 Developers of skin generator can use this to export new userobjects to the master folder.
 This component was written thanks to Giulio Piacentino a really helpful example.
 -
-Provided by Ladybug 0.0.61
-
     Args:
         components: Any output from a new  component that you wish to export. Right now, only one component can be connected at a time but you can input a "*" (without quotation marsk) to search all changed Ladybug components on a grasshopper canvas.
         export: Set to "True" to export components.
@@ -16,7 +31,7 @@ Provided by Ladybug 0.0.61
 
 ghenv.Component.Name = "SkinDesigner_ExportSkinDesigner"
 ghenv.Component.NickName = 'ExportSkinDesigner'
-ghenv.Component.Message = 'VER 0.0.50\nSEP_13_2017'
+ghenv.Component.Message = 'VER 0.1.16\nSep_22_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "05 | Update"
 
