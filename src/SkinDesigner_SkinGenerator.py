@@ -185,10 +185,11 @@ def CheckInputs():
         
         #---Skin Parameters value check ----------------------------------------
         global DEFAULT_BAY_LIST
-        for bayNum in DEFAULT_BAY_LIST: 
-            if bayNum not in range(1, len(PanelBay_List)+1):
-                warningData.append("Invalid defaultBayList value "+str(DEFAULT_BAY_LIST)+" in Skin Paramaters - process stopped")
-                fatalError = True; break
+        if DEFAULT_BAY_LIST <> None:
+            for bayNum in DEFAULT_BAY_LIST: 
+                if bayNum not in range(1, len(PanelBay_List)+1):
+                    warningData.append("Invalid defaultBayList value "+str(DEFAULT_BAY_LIST)+" in Skin Paramaters - process stopped")
+                    fatalError = True; break
         
     return fatalError
 
