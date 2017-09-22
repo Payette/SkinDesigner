@@ -18,10 +18,11 @@ Use this component to load skin-specific paramters to skinGenerator
 
 ghenv.Component.Name = "SkinDesigner_skinParameters"
 ghenv.Component.NickName = 'skinParameters'
-ghenv.Component.Message = 'VER 0.0.46\nJul_13_2017'
+ghenv.Component.Message = 'VER 0.0.46\nSep_22_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "01 | Construction"
-
+try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
+except: pass
 
 # automnatically set the right input names and types (when using + icon) 
 numInputs = ghenv.Component.Params.Input.Count

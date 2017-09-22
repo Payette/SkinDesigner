@@ -18,9 +18,11 @@ It should be placed at the upper/lect corner on the canvas to execute before the
 
 ghenv.Component.Name = "SkinDesigner_SkinDesigner"
 ghenv.Component.NickName = 'SkinDesigner'
-ghenv.Component.Message = 'VER 0.1.16\nSep_06_2017'
+ghenv.Component.Message = 'VER 0.1.16\nSep_22_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "01 | Construction"
+try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
+except: pass
 
 # push ladybug component to back
 ghenv.Component.OnPingDocument().SelectAll()
