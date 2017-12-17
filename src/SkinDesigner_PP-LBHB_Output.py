@@ -29,7 +29,7 @@ Use this component to apply a post-processing function(representation properties
 
 ghenv.Component.Name = "SkinDesigner_PP-LBHB_Output"
 ghenv.Component.NickName = 'PP-LBHB_Output'
-ghenv.Component.Message = 'VER 0.1.16\nSep_22_2017'
+ghenv.Component.Message = 'VER 0.1.17\nDec_17_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "03 | Functions"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "3"
@@ -52,6 +52,8 @@ sc.doc = Rhino.RhinoDoc.ActiveDoc
 unitSystem = sc.doc.ModelUnitSystem
 if unitSystem == Rhino.UnitSystem.Feet: _UNIT_COEF = 3.28084
 if unitSystem == Rhino.UnitSystem.Inches: _UNIT_COEF = 3.28084*12
+if unitSystem == Rhino.UnitSystem.Millimeters: _UNIT_COEF = 1000
+
 sc.doc = ghdoc
 
 

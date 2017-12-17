@@ -36,7 +36,7 @@ This is the main SkinDesigner component which contains the Panel, Skin and BaseD
 
 ghenv.Component.Name = "SkinDesigner_SkinDesigner"
 ghenv.Component.NickName = 'SkinDesigner'
-ghenv.Component.Message = 'VER 0.1.16\nSep_22_2017'
+ghenv.Component.Message = 'VER 0.1.17\nDec_17_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "01 | Construction"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
@@ -67,6 +67,7 @@ unitSystem = sc.doc.ModelUnitSystem
 _UNIT_COEF = 1
 if unitSystem == Rhino.UnitSystem.Feet: _UNIT_COEF = 3.28084
 if unitSystem == Rhino.UnitSystem.Inches: _UNIT_COEF = 3.28084*12
+if unitSystem == Rhino.UnitSystem.Millimeters: _UNIT_COEF = 1000
 sc.doc = ghdoc
 
 
@@ -1064,8 +1065,9 @@ class Panel:
         Window = self.__m_arrWindowUserData
         PanelWidth = self.GetWidth()
         PanelHeight = self.GetHeight()
-
         if type(fromLeftBottom) == StringType : fromLeftBottom = eval(fromLeftBottom)
+        if type(fromRightTop) == StringType : fromRightTop = eval(fromRightTop)
+        
         if type(fromLeftBottom) <> ListType or (type(fromLeftBottom[0]) <> FloatType and type(fromLeftBottom[0]) <> IntType) or \
             (type(fromLeftBottom[1]) <> FloatType and type(fromLeftBottom[1])<> IntType):
             self.__m_warningData.append("Wrong Shading fromLeftBottom parameter: "+ str(fromLeftBottom) + " at "+ strShadingType)  ; return
@@ -1082,7 +1084,8 @@ class Panel:
                
          #Check for valid possible methods to specify sunshade values       
         if strShadingType in ["HorizontalLouver", "VerticalLouver"] :
-            if type(fromRightTop) <> ListType or type(fromLeftBottom[0]) <> FloatType: self.__m_warningData.append("Wrong Shading parameter fromRightTop: "+ strShadingType)  ; return
+            #if type(fromRightTop) <> ListType or type(fromLeftBottom[0]) <> FloatType: 
+                #self.__m_warningData.append("Wrong Shading parameter fromRightTop: "+ strShadingType)  ; return
             if spacing < width : spacing = width
             if spacing < 0.02*self.__m_unitCoef : spacing = 0.02*self.__m_unitCoef
             fromEdge = None
@@ -1649,18 +1652,18 @@ class Panel:
             arrOpeningPoints = copy.deepcopy(self.__m_arrWindowPoints)
 
             #Avoid boolean error when subraction boxes align with panel edges
-            if round(self.__GetPanelProperty("WindowLeft"),3) == 0 : arrOpeningPoints[0][0] = arrOpeningPoints[3][0] = -.1 
-            if round(self.__GetPanelProperty("WindowRight"),3) == 0 : arrOpeningPoints[1][0] = arrOpeningPoints[2][0] = self.GetWidth()+.1 
-            if round(self.__GetPanelProperty("WindowBottom"),3) == 0 : arrOpeningPoints[0][2] = arrOpeningPoints[1][2] = -.1 
-            if round(self.__GetPanelProperty("WindowTop"),3) == 0 : arrOpeningPoints[2][2] = arrOpeningPoints[3][2] = self.GetHeight()+.1
+            if round(self.__GetPanelProperty("WindowLeft"),3) == 0 : arrOpeningPoints[0][0] = arrOpeningPoints[3][0] = -.1*self.__m_unitCoef
+            if round(self.__GetPanelProperty("WindowRight"),3) == 0 : arrOpeningPoints[1][0] = arrOpeningPoints[2][0] = self.GetWidth()+.1*self.__m_unitCoef
+            if round(self.__GetPanelProperty("WindowBottom"),3) == 0 : arrOpeningPoints[0][2] = arrOpeningPoints[1][2] = -.1*self.__m_unitCoef 
+            if round(self.__GetPanelProperty("WindowTop"),3) == 0 : arrOpeningPoints[2][2] = arrOpeningPoints[3][2] = self.GetHeight()+.1*self.__m_unitCoef
             
 
             pt1, pt2, pt3, pt4 = arrOpeningPoints
             GlsSurface = rg.Brep.CreateFromCornerPoints(rg.Point3d(pt1[0],pt1[1],pt1[2]), rg.Point3d(pt2[0],pt2[1],pt2[2]),\
                 rg.Point3d(pt3[0],pt3[1],pt3[2]), rg.Point3d(pt4[0],pt4[1],pt4[2]), rcTolerance)
             OpeningObject = GlsSurface.Faces.Item[0].CreateExtrusion(\
-                rg.LineCurve(rg.Point3d(0,0,0), rg.Point3d(0, 4, 0)), True)
-            OpeningObject.Translate(0,-2,0)
+                rg.LineCurve(rg.Point3d(0,0,0), rg.Point3d(0, 4*self.__m_unitCoef, 0)), True)
+            OpeningObject.Translate(0,-2*self.__m_unitCoef,0)
             
             arrPaneObjects = self.__m_arrPaneBreps
             self.__m_arrPaneBreps = []
