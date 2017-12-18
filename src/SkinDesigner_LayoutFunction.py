@@ -25,6 +25,7 @@ Use this component to apply a Layout Design Function to a SkinGenerator componen
         _dataFunctionL: A dataFunction object created by Layout Data Function components such as DataPattern or DataRandom components.
         excludeBayIDs: A list of integers representing the panel bays ID numbers (based on their input number in SkinGenerator) that will not be affected by the Layout Design Function.
         modifierGeometry : A list of geometry objects that limit the area of application of the Desgin Function on the SkinGenerator surfaces. Grasshopper Surface, polysurface and curve types are accepted as well as Rhino scene ID versions of these geometry types. If no modifier geometry is specified, the algorithm is aplied on all SkinGenerator surfaces.
+        modifierDistThreshold : A floating point number that specifies the distance between the panel center point and the closest point to the modifier geometry. Larger numbers will detect modifier objects that don't tightly follow the facade surfaces. Defalt value is 0.1 meters.
         modifierFalloff: A floating point number that specifies the falloff or blending between the modified and unmodified areas created by the modifier objecs. The default value is 0.0
     Returns:
         designFunction: A designFunction object to be connected to the SkinGenerator component.
@@ -33,7 +34,7 @@ Use this component to apply a Layout Design Function to a SkinGenerator componen
 
 ghenv.Component.Name = "SkinDesigner_LayoutFunction"
 ghenv.Component.NickName = 'LayoutFunction"'
-ghenv.Component.Message = 'VER 0.1.16\nSep_22_2017'
+ghenv.Component.Message = 'VER 0.1.17\nDec_17_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "03 | Functions"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
@@ -49,16 +50,24 @@ import copy
 import math
 import System
 
+#init set up global variables
+sc.doc = rc.RhinoDoc.ActiveDoc
+unitSystem = sc.doc.ModelUnitSystem
+_UNIT_COEF = 1
+if unitSystem == rc.UnitSystem.Feet: _UNIT_COEF = 3.28084
+if unitSystem == rc.UnitSystem.Inches: _UNIT_COEF = 3.28084*12
+if unitSystem == rc.UnitSystem.Millimeters: _UNIT_COEF = 1000
+sc.doc = ghdoc
+
 
 try:
     SGLibDesignFunction = sc.sticky["SGLib_DesignFunction"]
 except:
     ghenv.Component.AddRuntimeMessage(gh.GH_RuntimeMessageLevel.Warning,"I need SkinDesigner_SkinDesigner component")
-else:
-    
-    
+else: 
+
     class LayoutDesignFunction(SGLibDesignFunction):
-        
+        global _UNIT_COEF
         __m_modifierObjects = []
         __m_functionCall = ''
         __m_functionType = ''
@@ -67,6 +76,7 @@ else:
         __m_randomObject = None
         __m_randomSeed = 1
         __m_DataFunction = None
+        __m_modifierDistThreshold = 0.1 * _UNIT_COEF
         warningData = []
         
         #CONSTRUCTOR -------------------------------------------------------------------------------------------
@@ -77,7 +87,8 @@ else:
             self.__m_functionType = 'Layout'
             if modifierGeometry : self.__m_modifierObjects = modifierGeometry
                 
-                
+            if modifierDistThreshold : self.__m_modifierDistThreshold = modifierDistThreshold
+            
             for index, obj in enumerate(self.__m_modifierObjects) :
                 try:
                     if type(obj) == System.Guid:
@@ -131,7 +142,8 @@ else:
         #Selection of panel bay base on proximity to modifier curves
         #Refer to Skin API for skinInstance properties available (GetProperty and GetCellProperty)     
         def Run(self, PanelBay_List, currentBay, skinInstance):
-            modDistTolerance = 0.1
+            
+            modDistTolerance = self.__m_modifierDistThreshold
             level = skinInstance.GetProperty("SKIN_CURRENT_CELL_ROW")  
             inLevelIndex = skinInstance.GetProperty("SKIN_CURRENT_CELL_COLUMN") 
             bayIndex = skinInstance.GetProperty("SKIN_CURRENT_BAY_INDEX")
