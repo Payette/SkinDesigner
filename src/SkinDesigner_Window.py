@@ -37,7 +37,7 @@ Refer to PanelLib API for Definition input functions
 
 ghenv.Component.Name = "SkinDesigner_Window"
 ghenv.Component.NickName = 'Window'
-ghenv.Component.Message = 'VER 0.1.16\nSep_22_2017'
+ghenv.Component.Message = 'VER 0.1.16\nSep_23_2017'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "02 | Parameters"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
