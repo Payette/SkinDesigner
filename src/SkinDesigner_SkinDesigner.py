@@ -1,6 +1,6 @@
-# SkinDesigner: A Plugin for Building Skin Design (GPL) started by Santiago Garay
+# SkinDesigner: A Plugin for Building Skin Design (GPL) started by Santiago Garay 
 
-# This file is part of SkinDesigner.
+# This file is part of SkinDesigner.(Rhino 6)
 # 
 # Copyright (c) 2017, Santiago Garay <sgaray1970@gmail.com> 
 # SkinDesigner is free software; you can redistribute it and/or modify 
@@ -36,7 +36,7 @@ This is the main SkinDesigner component which contains the Panel, Skin and BaseD
 
 ghenv.Component.Name = "SkinDesigner_SkinDesigner"
 ghenv.Component.NickName = 'SkinDesigner'
-ghenv.Component.Message = 'VER 0.1.17\nDec_17_2017'
+ghenv.Component.Message = 'VER 0.1.18\nMar_15_2018'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "01 | Construction"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
@@ -2317,7 +2317,7 @@ class Panel:
             if  self.__m_blnShowCustomGeo and self.__m_CustomGeoDrawBreps <> [] :
                 for brep in self.__m_CustomGeoDrawBreps:
                     CGLayerName = brep.GetUserString("Layer")
-                    if CGLayerName == "" : CGLayerName = "CustomGeo"
+                    if CGLayerName == None or CGLayerName == "": CGLayerName = "CustomGeo"
                     if not rs.IsLayer(parentLayerName+"::_P_"+CGLayerName) : rs.AddLayer("_P_"+CGLayerName, parent=parentLayerName)
                     rs.CurrentLayer(parentLayerName+"::_P_"+CGLayerName)
                     self.__m_CustomGeoObjects.append(sc.doc.Objects.AddBrep(brep))

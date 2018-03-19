@@ -34,7 +34,7 @@ Use this component to apply a Layout Design Function to a SkinGenerator componen
 
 ghenv.Component.Name = "SkinDesigner_LayoutFunction"
 ghenv.Component.NickName = 'LayoutFunction"'
-ghenv.Component.Message = 'VER 0.1.17\nDec_17_2017'
+ghenv.Component.Message = 'VER 0.2.00\nMar_15_2018'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "03 | Functions"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "1"
@@ -101,7 +101,7 @@ else:
                         if geo == None : geo = rc.DocObjects.ObjRef(obj).Curve()
                         geo.SetUserString('Data', objData)
                         self.__m_modifierObjects[index] = geo
-                    else: obj.SetUserString('Data', "")
+                    else: obj.SetUserString('Data', " ")
                 except:
                     self.warningData.append("Invalid 'modifierGeometry' value at #"+ str(index+1))
                     self.__m_modifierObjects[index] = None

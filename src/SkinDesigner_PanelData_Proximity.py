@@ -34,7 +34,7 @@ Use this component to modify the data list generated in the Panel Functions with
 
 ghenv.Component.Name = "SkinDesigner_PanelData_Proximity"
 ghenv.Component.NickName = 'PanelData_Proximity'
-ghenv.Component.Message = 'VER 0.1.16\nSep_22_2017'
+ghenv.Component.Message = 'VER 0.2.00\nMar_15_2018'
 ghenv.Component.Category = "SkinDesigner"
 ghenv.Component.SubCategory = "03 | Functions"
 try: ghenv.Component.AdditionalHelpFromDocStrings = "2"
@@ -79,7 +79,7 @@ class PanelDataFunction:
                         geo.SetUserString('Data', objData)
                         self.__m_geometry.append(geo)
                     else: 
-                        obj.SetUserString('Data', "")
+                        obj.SetUserString('Data', " ")
                         self.__m_geometry.append(obj)
                 except:
                     self.warningData.append("Invalid geometry object item #"+ str(index+1)) ; continue
